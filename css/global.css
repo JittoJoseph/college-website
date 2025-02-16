@@ -4,6 +4,17 @@
     box-sizing: border-box;
 }
 
+:root {
+    --accent-primary: #1a237e;    /* Deep Blue */
+    --accent-light: #534bae;      /* Lighter Blue */
+    --accent-dark: #000051;       /* Darker Blue */
+    --text-light: #ffffff;
+    --text-dark: #2c3e50;
+    --bg-light: #f8f9fa;
+    --bg-blue-tint: #f0f8ff;     /* Very light sky blue */
+    --bg-content: #d3edff;        /* Slightly more saturated blue for content */
+}
+
 body {
     font-family: 'Segoe UI', sans-serif;
     line-height: 1.6;
@@ -13,8 +24,8 @@ body {
 }
 
 .navbar {
-    background: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: var(--bg-blue-tint);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
@@ -24,6 +35,7 @@ body {
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
+    color: var(--accent-primary);
 }
 
 .nav-links {
@@ -34,16 +46,19 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
+    color: var(--accent-primary);
+    opacity: 0.8;
+    transition: opacity 0.3s;
 }
 
 .nav-links a:hover, .nav-links a.active {
-    color: #007bff;
+    color: var(--accent-primary);
+    opacity: 1;
 }
 
 .hero {
     flex: 1;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
                 url('../images/college-1.jpeg');
     background-size: cover;
     background-position: center;
@@ -54,8 +69,9 @@ body {
 }
 
 .hero-content {
-    color: white;
+    color: var(--bg-content);
     padding: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .hero-content h1 {
@@ -70,11 +86,64 @@ body {
 }
 
 .footer {
-    background: white;
-    color: #333;
+    background: var(--bg-blue-tint);
+    color: var(--accent-primary);
     text-align: center;
     padding: 1rem;
     margin-top: auto;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+}
+
+.dept-list {
+    margin-top: 2rem;
+}
+
+.dept-list p {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.content {
+    flex: 1;
+    padding: 4rem 2rem;
+    background: var(--bg-content);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content h1 {
+    color: var(--accent-primary);
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.dept-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    width: 100%;
+}
+
+.dept-card {
+    background: var(--bg-light);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+    font-size: 1.1rem;
+    color: var(--accent-primary);
+    border: 2px solid transparent;
+}
+
+.dept-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-color: var(--accent-light);
 }
 
 @media (max-width: 768px) {
@@ -86,6 +155,13 @@ body {
         margin-top: 1rem;
     }
     .hero-content h1 {
+        font-size: 2rem;
+    }
+    .content {
+        padding: 2rem 1rem;
+    }
+    
+    .content h1 {
         font-size: 2rem;
     }
 }
