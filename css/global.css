@@ -1,46 +1,91 @@
-/* Global styles for the college website */
-
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
     color: #333;
 }
 
-header {
-    background: #007BFF;
-    color: #fff;
-    padding: 10px 0;
+.nav-links a:hover, .nav-links a.active {
+    color: #007bff;
+}
+
+.hero {
+    flex: 1;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url('../images/college-1.jpeg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
-nav {
-    margin: 20px 0;
+.hero-content {
+    color: white;
+    padding: 2rem;
 }
 
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #fff;
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-nav a:hover {
-    text-decoration: underline;
+.hero-content p {
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
-.container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-}
-
-footer {
+.footer {
+    background: white;
+    color: #333;
     text-align: center;
-    padding: 20px 0;
-    background: #007BFF;
-    color: #fff;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    padding: 1rem;
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-links {
+        margin-top: 1rem;
+    }
+    .hero-content h1 {
+        font-size: 2rem;
+    }
 }
